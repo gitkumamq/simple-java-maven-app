@@ -25,6 +25,9 @@ if [[ -f "$JAR_FILE" ]]; then
     set +x
 else
     echo "❌ ERROR: JAR file not found: $JAR_FILE"
-    echo "       Check that 'mvn package' succeeded and the artifact is in the target/ directory."
+    echo "📂 Listing contents of target/:"
+    ls -l target/
+    echo "🧪 Checking for possible filename mismatches..."
+    find target/ -name "*.jar"
     exit 1
 fi
